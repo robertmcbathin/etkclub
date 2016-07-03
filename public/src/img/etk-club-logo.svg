@@ -1,0 +1,45 @@
+<svg version="1.1" id="L7" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+  viewBox="0 0 600 600" enable-background="new 0 0 600 600" xml:space="preserve">
+<path
+     style="fill:none;stroke:#b228b0;stroke-width:40;stroke-miterlimit:10"
+     d="M 552.38615,302.64308 A 252.39999,252.39999 0 0 1 298.23793,552.39384 252.39999,252.39999 0 0 1 47.601544,299.11896 252.39999,252.39999 0 0 1 300,47.600006"
+     id="circle3"
+     stroke-miterlimit="10">
+     <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="9s" 
+         from="0 300 300"
+         to="360 300 300" 
+         repeatCount="indefinite"/>
+  </path>
+<path
+     style="fill:none;stroke:#ffc900;stroke-width:40;stroke-miterlimit:10"
+     d="M 101.53709,309.20157 A 198.60001,198.60001 0 0 1 273.63387,102.64459 198.60001,198.60001 0 0 1 493.86711,256.85356 198.60001,198.60001 0 0 1 358.62761,489.21829"
+     id="circle5"
+     stroke-miterlimit="10" >
+     <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="9.4s" 
+         from="0 300 300"
+         to="-360 300 300" 
+         repeatCount="indefinite"/>
+</path>
+<path
+     d="M 411.74737,392.16272 A 144.89999,144.89999 0 0 1 262.19015,439.65295 144.89999,144.89999 0 0 1 157.09102,323.13319 144.89999,144.89999 0 0 1 219.70305,179.24984"
+     style="fill:none;stroke:#08d9bb;stroke-width:40;stroke-miterlimit:10"
+     id="circle7"
+     stroke-miterlimit="10" >
+     <animateTransform 
+         attributeName="transform" 
+         attributeType="XML" 
+         type="rotate"
+         dur="10s" 
+         from="0 300 300"
+         to="360 300 300" 
+         repeatCount="indefinite"/>
+</path>
+</svg>

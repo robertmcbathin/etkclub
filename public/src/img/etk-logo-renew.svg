@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg3341"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="etk-logo-renew.svg">
+  <defs
+     id="defs3343" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="183.33904"
+     inkscape:cy="586.78515"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer3"
+     showgrid="true"
+     inkscape:snap-grids="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1">
+    <inkscape:grid
+       type="xygrid"
+       id="grid4188" />
+  </sodipodi:namedview>
+  <metadata
+     id="metadata3346">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#6416b2;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4181"
+       sodipodi:type="arc"
+       sodipodi:cx="408.10162"
+       sodipodi:cy="457.38235"
+       sodipodi:rx="286.88333"
+       sodipodi:ry="286.88333"
+       sodipodi:start="0.82379541"
+       sodipodi:end="4.8136181"
+       d="M 603.02201,667.87722 A 286.88333,286.88333 0 0 1 250.17787,696.88629 286.88333,286.88333 0 0 1 137.84104,361.14689 286.88333,286.88333 0 0 1 437.093,171.96766"
+       sodipodi:open="true" />
+       <animateTransform  type="rotate" fill="remove" repeatCount="1" attributeType="XML" attributeName="transform" accumulate="none" dur="1.5s" additive="replace" from="0 420 450" to="360 420 450" restart="always" calcMode="linear">
+    </animateTransform>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer2"
+     inkscape:label="Layer 2">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#ffad31;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4186"
+       sodipodi:type="arc"
+       sodipodi:cx="-214.85437"
+       sodipodi:cy="-574.36566"
+       sodipodi:rx="230.31477"
+       sodipodi:ry="230.31477"
+       sodipodi:start="0.82379541"
+       sodipodi:end="4.8136181"
+       sodipodi:open="true"
+       d="m -58.369,-405.37683 a 230.31477,230.31477 0 0 1 -283.26922,23.28896 230.31477,230.31477 0 0 1 -90.1859,-269.53725 230.31477,230.31477 0 0 1 240.24451,-151.87627"
+       transform="matrix(-0.93082703,0.36546003,-0.36546003,-0.93082703,0,0)" />
+       <animateTransform  type="rotate" fill="remove" repeatCount="1" attributeType="XML" attributeName="transform" accumulate="none" dur="1.5s" additive="replace" from="0 420 450" to="360 420 450" restart="always" calcMode="linear">
+    </animateTransform>
+  </g>
+  <g
+     inkscape:groupmode="layer"
+     id="layer3"
+     inkscape:label="Layer 3">
+    <path
+       style="fill:none;fill-opacity:1;stroke:#138d90;stroke-width:50;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+       id="path4190"
+       sodipodi:type="arc"
+       sodipodi:cx="200.37381"
+       sodipodi:cy="579.34021"
+       sodipodi:rx="170"
+       sodipodi:ry="170"
+       sodipodi:start="0.82379541"
+       sodipodi:end="4.8136181"
+       sodipodi:open="true"
+       d="M 315.87883,704.07429 A 170,170 0 0 1 106.79208,721.26435 170,170 0 0 1 40.224044,522.31344 170,170 0 0 1 217.55338,410.21049"
+       transform="matrix(0.9228798,-0.38508814,0.38508814,0.9228798,0,0)" />
+       <animateTransform  type="rotate" fill="remove" repeatCount="1" attributeType="XML" attributeName="transform" accumulate="none" dur="1.5s" additive="replace" from="0 420 450" to="360 420 450" restart="always" calcMode="linear">
+    </animateTransform>
+  </g>
+</svg>

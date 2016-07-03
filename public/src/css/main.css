@@ -1,0 +1,45 @@
+.etk-bg{
+	height: 600px;
+	width:100%;
+    padding: 100px 0;
+    background: url('/src/img/bg/cheb-day.jpg') no-repeat center center scroll;
+ /*   -moz-background-size: 100%; /* Firefox 3.6+ */
+ /*   -webkit-background-size: 100%; /* Safari 3.1+ и Chrome 4.0+ */
+ /*   -o-background-size: 100%; /* Opera 9.6+ */
+ /*   background-size: 100%; /* Современные браузеры */
+ text-align: left;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    -o-background-size: cover;
+}
+svg{
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  display:inline-block;
+}
+.navbar {
+	margin-bottom: 0px;
+	min-height: 57px;
+}
+@font-face{
+	font-family: 'Exo 2';
+	src: url(/src/fonts/Exo2-Bold.otf);
+}
+h1.logo-font{
+	font-family: 'Exo 2';
+	font-size: 200px;
+	margin-bottom: 0;
+}
+h6.logo-font{
+	font-family: 'Exo 2';
+	font-size: 70px ;
+    padding-left: 35px;
+    padding-right: 0px;
+    letter-spacing: 50px;
+	margin-top: 0;
+}
+col-xs-12{
+	text-align: center;
+}

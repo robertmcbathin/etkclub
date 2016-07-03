@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generator: Adobe Illustrator 18.1.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   version="1.1"
+   id="Layer_1"
+   x="0px"
+   y="0px"
+   viewBox="0 0 600 600"
+   enable-background="new 0 0 600 600"
+   xml:space="preserve"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="etk-club-logo.svg">
+  <metadata
+     id="metadata13">
+  <rdf:RDF>
+    <cc:Work
+         rdf:about="">
+      <dc:format>image/svg+xml</dc:format>
+      <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      <dc:title></dc:title>
+    </cc:Work>
+  </rdf:RDF>
+</metadata>
+<defs
+     id="defs11" />
+<sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1920"
+     inkscape:window-height="1018"
+     id="namedview9"
+     showgrid="false"
+     inkscape:zoom="1.1125147"
+     inkscape:cx="300.79036"
+     inkscape:cy="336.53327"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Layer_1" />
+<path
+     class="circle3"
+     stroke-miterlimit="10"
+     id="circle3"
+     sodipodi:type="arc"
+     sodipodi:cx="300"
+     sodipodi:cy="300"
+     sodipodi:rx="252.39999"
+     sodipodi:ry="252.39999"
+     sodipodi:start="0.010471976"
+     sodipodi:end="4.712389"
+     d="M 552.38615,302.64308 A 252.39999,252.39999 0 0 1 298.23793,552.39384 252.39999,252.39999 0 0 1 47.601544,299.11896 252.39999,252.39999 0 0 1 300,47.600006"
+     style="fill:none;stroke:#b228b0;stroke-width:40;stroke-miterlimit:10"
+     sodipodi:open="true" />
+<path
+     class="circle5"
+     stroke-miterlimit="10"
+     id="circle5"
+     sodipodi:type="arc"
+     sodipodi:cx="299.89999"
+     sodipodi:cy="299.5"
+     sodipodi:rx="198.60001"
+     sodipodi:ry="198.60001"
+     sodipodi:start="3.0927234"
+     sodipodi:end="1.2705997"
+     d="M 101.53709,309.20157 A 198.60001,198.60001 0 0 1 273.63387,102.64459 198.60001,198.60001 0 0 1 493.86711,256.85356 198.60001,198.60001 0 0 1 358.62761,489.21829"
+     style="fill:none;stroke:#ffc900;stroke-width:40;stroke-miterlimit:10"
+     sodipodi:open="true" />
+<path
+     class="circle7"
+     stroke-miterlimit="10"
+     id="circle7"
+     style="fill:none;stroke:#08d9bb;stroke-width:40;stroke-miterlimit:10"
+     sodipodi:type="arc"
+     sodipodi:cx="300.10001"
+     sodipodi:cy="299.79999"
+     sodipodi:rx="144.89999"
+     sodipodi:ry="144.89999"
+     sodipodi:start="0.69115038"
+     sodipodi:end="4.124213"
+     d="M 411.74737,392.16272 A 144.89999,144.89999 0 0 1 262.19015,439.65295 144.89999,144.89999 0 0 1 157.09102,323.13319 144.89999,144.89999 0 0 1 219.70305,179.24984"
+     sodipodi:open="true" />
+</svg>
