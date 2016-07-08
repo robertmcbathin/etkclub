@@ -13,6 +13,9 @@
     background-size: cover;
     -o-background-size: cover;
 }
+p{
+	font-size: 18px;
+}
 svg{
   width: 100px;
   height: 100px;
@@ -54,6 +57,7 @@ col-xs-12{
 }
 #about-container{
 	height: 100vh;
+	width: 100vw;
 	text-align: center;
 	-webkit-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
 -moz-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
@@ -65,4 +69,10 @@ box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
 }
 #about-container p{
 	font-family: "Ubuntu",Calibri;
+}
+.about-card-text{
+ text-align: left;
+}
+.about-market-text{
+	text-align: right;
 }
