@@ -61,14 +61,18 @@
        </div>
          <div class="input-group">
          <label for="">
-           <input type="checkbox" name="confirm"   checked="checked" value="Y">
+           <input type="checkbox" name="confirm"  id="check" checked="checked" value="Y">
            Я ознакомлен(а) с <a href="{{ route('privacy') }}"" target="_blank">политикой конфиденциальности</a> и даю своё <a href="{{ route('eula') }}" target="_blank">согласие на обработку персональных данных</a>.
          </label>
          </div>
          {{ csrf_field() }}
-         <button type="submit" class="btn btn-primary r-lign">Вступить в клуб</button>
+         <button id="submit" type="submit" class="btn btn-primary r-lign">Вступить в клуб</button>
         </form>
         </div>
+        </div>
+        <div class="row">
+                  <hr>
+        <p>У Вас еще нет карты? С условиями приобретения Вы можете ознакомиться на сайте <a href="http://etk21.ru" target="_blank">ООО "Единая транспортная карта"</a>.</p>
         </div>
       </div>
     </div>

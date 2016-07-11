@@ -12,4 +12,15 @@ $(document).ready(function(){
 		//анимируем переход на расстояние - top за 1500 мс
 		$('body,html').animate({scrollTop: top}, 1500);
 	});
+	$('#check').on('click', function(){
+		if ($('#check').attr("checked") != 'checked'){
+			$('#submit').attr('disabled','disabled');
+			$('#check').attr("checked") = 'checked';
+			return false;
+		}
+		else{
+			$('#submit').removeAttr('disabled');
+		}
+		return true;
+	});
 });
