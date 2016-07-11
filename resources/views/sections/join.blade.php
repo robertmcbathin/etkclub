@@ -9,37 +9,41 @@
          <p>Данные о карте</p>
           <div class="input-group">
             <label for="card_serie" >Серия</label>
-            <input type="text" id="card_serie" name="card_serie" maxlength="3" class="form-control" size="3">
+            <input type="text" id="card_serie" name="card_serie" maxlength="3" class="form-control" size="3" placeholder="00">
          </div>
          <div class="input-group">
             <label for="card_number">Номер</label>
-            <input type="text" id="card_number" name="card_number" maxlength="15" class="form-control" size="15">
+            <input type="text" id="card_number" name="card_number" maxlength="15" class="form-control" size="15" placeholder="000000000">
          </div>
+         <span></span>
          <hr>
        </div>
        <div class="owner-credentials">
          <p>Данные о владельце</p>
           <div class="input-group">
             <label for="second_name">Фамилия</label>
-            <input type="text" id="second_name" name="second_name" maxlength="50" class="form-control" size="50">
+            <input type="text" id="second_name" name="second_name" maxlength="50" class="form-control" size="50" placeholder="Швецов">
          </div>
          <div class="input-group">
             <label for="first_name">Имя</label>
-            <input type="text" id="first_name" name="first_name" maxlength="50" class="form-control" size="50">
+            <input type="text" id="first_name" name="first_name" maxlength="50" class="form-control" size="50" placeholder="Лев">
          </div>
          <div class="input-group">
             <label for="third_name">Отчество</label>
-            <input type="text" id="third_name" name="third_name" maxlength="50" class="form-control" size="50">
+            <input type="text" id="third_name" name="third_name" maxlength="50" class="form-control" size="50" placeholder="Александрович">
          </div>
        </div>
        <div class="owner-private-data">
          <div class="input-group">
             <label for="sex">Пол</label>
-            <input type="text" id="sex" name="sex" maxlength="3" class="form-control" size="3">
+            <select class="form-control" name="sex">
+             <option>муж</option>
+             <option>жен</option>
+            </select>
          </div>
          <div class="input-group">
             <label for="dob">Дата рождения</label>
-            <input type="date" id="dob" name="dob" maxlength="10" class="form-control" size="10">
+            <input type="date" id="dob" name="dob" maxlength="10" class="form-control" size="10" placeholder="мм/дд/гггг">
          </div>
          <hr>
        </div>
