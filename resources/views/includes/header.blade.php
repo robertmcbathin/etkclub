@@ -18,13 +18,10 @@
                         <a href="#about-container">О клубе</a>
                     </li>
                     <li>
-                        <a href="#">Преимущества</a>
+                        <a href="#cards">Транспортные карты</a>
                     </li>
                     <li>
-                        <a href="#">Проекты</a>
-                    </li>
-                    <li>
-                        <a href="#">Вступить в клуб</a>
+                        <a href="#join-container">Вступить в клуб</a>
                     </li>
                 </ul>
             </div>

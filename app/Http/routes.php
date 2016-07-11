@@ -14,3 +14,6 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::post('/signup', ['uses' => 'UserController@signup', 'as' => 'signup']);
+Route::get('/eula', ['uses' => 'UserController@showEula', 'as' => 'eula']);
+Route::get('/privacy', ['uses' => 'UserController@showPrivacyPolitics', 'as' => 'privacy']);
