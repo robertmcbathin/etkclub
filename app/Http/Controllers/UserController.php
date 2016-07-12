@@ -19,8 +19,12 @@ class UserController extends Controller
     {
     	$this->validate($request,[
     		'card_serie' => 'required|min:2',
-    		'card_number' => 'required|min:9'
-
+    		'card_number' => 'required|min:9',
+            'second_name' => 'required|max:50',
+            'first_name' => 'required|max:50',
+            'date' => 'date',
+            'phone' => 'required|max:15',
+            'email' => 'required|email|max:50'
     		]);
     	/*CARD CREDENTIALS*/
     	$card_serie  = $request['card_serie'];
