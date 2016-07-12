@@ -14,6 +14,12 @@
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/index', function () {
+    return view('index');
+});
 Route::post('/signup', ['uses' => 'UserController@postSignUp', 'as' => 'signup']);
 Route::get('/eula', ['uses' => 'UserController@showEula', 'as' => 'eula']);
 Route::get('/privacy', ['uses' => 'UserController@showPrivacyPolitics', 'as' => 'privacy']);
+Route::get('/entrance', function(){
+	return view('entrance');
+});

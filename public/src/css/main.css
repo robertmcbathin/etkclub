@@ -89,7 +89,6 @@ background: #35a973;
 	color: #fff;
 }
 #join-container{
-	min-height: 100vh;
 	width: 100vw;
 	text-align: center;
 	-webkit-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
@@ -140,4 +139,7 @@ label{
 .footer p{
 	font-family: "Exo 2";
 	color: #9d9d9d;
+}
+.jumbotron{
+	margin-bottom: 0;
 }
