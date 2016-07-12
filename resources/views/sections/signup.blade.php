@@ -49,6 +49,7 @@
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="sex">Пол</label>
             <select class="form-control" name="sex">
+             <option>Не указано</option>
              <option>муж</option>
              <option>жен</option>
             </select>

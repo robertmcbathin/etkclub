@@ -23,3 +23,4 @@ Route::get('/privacy', ['uses' => 'UserController@showPrivacyPolitics', 'as' => 
 Route::get('/entrance', function(){
 	return view('entrance');
 });
+Route::get('/entrance/ok/{email}', ['uses' => 'UserController@showEntranceOk', 'as' => 'entrance.ok']);
