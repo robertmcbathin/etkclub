@@ -54,7 +54,8 @@ class UserController extends Controller
     	$third_name  = $request['third_name'];
     	$sex         = $request['sex'];
     	$dob         = $request['dob'];
-        $psw         = bcrypt($this->generatePassword());
+        $psw_to_send = $this->generatePassword();
+        $psw         = bcrypt($psw_to_send);
     	/*-----------------*/
     	/*CONTACT INFORMATION*/
     	$phone = $request['phone'];
@@ -79,7 +80,7 @@ class UserController extends Controller
             'NUM' => $card_number
         ]);
 
-        DB::table('USERS')->insert([
+        $user_id = DB::table('USERS')->insertGetId([
             'USERNAME' => '',
             'FIRST_NAME' => $first_name,
             'SECOND_NAME' => $second_name,
@@ -94,6 +95,19 @@ class UserController extends Controller
         ]);
 
         /*----------------*/
+        /*SENDING E-MAIL
+        *user_id, 
+
+        */
+        Mail::pretend('emails.email_verifier',
+            ['user_id' => $user_id,
+             'email' => $email,
+             'psw' => $psw_to_send],
+             function ($m){
+      $m->from('activation@etk-club.ru', 'ЕТК-Клуб');
+      $m->to($email)->subject('Активация аккаунта в программе "ЕТК-Клуб"');
+    });
+        /*--------------*/
         return redirect()->route('entrance.ok',[$email]);
     }
     public function postSignIn(Request $request)
