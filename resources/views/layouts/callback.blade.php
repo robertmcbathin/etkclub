@@ -12,9 +12,9 @@
     <link rel="stylesheet" href="{{ URL::to('src/css/animate.css') }}">
     <link rel="stylesheet" href="{{ URL::to('src/css/font-awesome.min.css') }}">
     <link href="{{ URL::to('src/css/main.css') }}" rel="stylesheet">
+    <link rel="stylesheet" href="{{ URL::to('src/css/sticky-footer.css') }}">
 </head>
 <body>
-   @include('includes.entrance_header')
     @yield('content')
 
     <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
@@ -25,6 +25,5 @@
     <script>
       new WOW().init();
     </script>
-   @include('includes.footer')
 </body>
 </html>

@@ -23,4 +23,9 @@ Route::get('/privacy', ['uses' => 'UserController@showPrivacyPolitics', 'as' => 
 Route::get('/entrance', function(){
 	return view('entrance');
 });
+Route::get('/verify_account/{token}/activate', [
+	'uses' => 'UserController@verifyAccount', 
+	'as' => 'verify'
+]);
 Route::get('/entrance/ok/{email}', ['uses' => 'UserController@showEntranceOk', 'as' => 'entrance.ok']);
+Route::get('/activation/ok', ['uses' => 'UserController@showActivationOk', 'as' => 'activation.ok']);
