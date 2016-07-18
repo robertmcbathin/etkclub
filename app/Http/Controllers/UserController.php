@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Mail;
 use App\User;
 use DB;
 use App\Http\Requests;
 
 class UserController extends Controller
 {
+	public $email;
     public function generatePassword($length = 8)
     {
       $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
@@ -99,16 +101,44 @@ class UserController extends Controller
         *user_id, 
 
         */
-        Mail::pretend('emails.email_verifier',
-            ['user_id' => $user_id,
-             'email' => $email,
-             'psw' => $psw_to_send],
-             function ($m){
-      $m->from('activation@etk-club.ru', 'ЕТК-Клуб');
-      $m->to($email)->subject('Активация аккаунта в программе "ЕТК-Клуб"');
+      Mail::send('emails.email_verifier',
+          ['user_id' => $user_id,
+           'email' => $email,
+           'psw' => $psw_to_send,
+           'token' => $token],
+           function ($m) use ($email){
+    $m->from('activation@etk-club.ru', 'ЕТК-Клуб');
+    $m->to($email)->subject('Активация аккаунта в программе "ЕТК-Клуб"');
     });
         /*--------------*/
         return redirect()->route('entrance.ok',[$email]);
+    }
+
+    public function verifyAccount($token)
+    {
+    	if ($card = DB::table('CARDS')->where('ACTIVATION_TOKEN',$token)->first())
+    		{
+    		  DB::table('CARDS')
+                ->where('ID', $card->ID)
+                ->update(['ACTIVATION_TOKEN' => null,
+                	      'IS_ACTIVATED'     => 1
+              ]);
+              DB::table('ACTIVATED_CARDS')
+                ->where('SERIE', $card->SERIE)
+                ->where('NUM', $card->NUM)
+                ->update(['IS_ACTIVE'        => 1
+              ]);
+              $activated_card = DB::table('ACTIVATED_CARDS')->where('SERIE', $card->SERIE)
+                                                            ->where('NUM', $card->NUM)
+                                                            ->first();
+              DB::table('USERS')
+                ->where('CARD_ID', $activated_card->ID)
+                ->update(['IS_ACTIVE'        => 1
+              ]);
+                /*MAIL ABOUT HOW GREAT THE SIGN UP WAS*/
+                /*------------------------------------*/
+              return redirect()->route('activation.ok');
+    		}
     }
     public function postSignIn(Request $request)
     {
@@ -119,5 +149,9 @@ class UserController extends Controller
         return view('callbacks.send_confirmation_email',[
             'email' => $email
             ]);
+    }
+    public function showActivationOk()
+    {
+        return view('callbacks.show_that_account_is_activated');
     }
 }
