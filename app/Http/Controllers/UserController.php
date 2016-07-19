@@ -11,6 +11,11 @@ use App\Http\Requests;
 class UserController extends Controller
 {
 	public $email;
+
+    protected $last_inserted_id;
+
+    protected $user;
+
     public function generatePassword($length = 8)
     {
       $chars = 'abdefhiknrstyzABDEFGHKNQRSTYZ23456789';
@@ -56,8 +61,6 @@ class UserController extends Controller
     	$third_name  = $request['third_name'];
     	$sex         = $request['sex'];
     	$dob         = $request['dob'];
-        $psw_to_send = $this->generatePassword();
-        $psw         = bcrypt($psw_to_send);
     	/*-----------------*/
     	/*CONTACT INFORMATION*/
     	$phone = $request['phone'];
@@ -72,29 +75,31 @@ class UserController extends Controller
                 else $sex = 'U';
         /*------------*/
         /*SAVE TO DATABASE*/
-        DB::table('CARDS')
-            ->where('SERIE', $card_serie)
-            ->where('NUM', $card_number)
-            ->update(['ACTIVATION_TOKEN' => $token]);
-
-        $preactive_card_id = DB::table('ACTIVATED_CARDS')->insertGetId([
-            'SERIE' => $card_serie, 
-            'NUM' => $card_number
-        ]);
-
-        $user_id = DB::table('USERS')->insertGetId([
-            'USERNAME' => '',
-            'FIRST_NAME' => $first_name,
-            'SECOND_NAME' => $second_name,
-            'PATRONYMIC' => $third_name,
-            'EMAIL' => $email,
-            'PHONE' => $phone,
-            'SEX' => $sex,
-            'DOB' => $dob,
-            'PSW' => $psw,
-            'CARD_ID' => $preactive_card_id,
-            'IS_ACTIVE' => 0
-        ]);
+        DB::transaction(function() use ($card_serie, $card_number,$token,$first_name,$second_name, $third_name, $email,$phone,$sex,$dob){
+          DB::table('CARDS')
+              ->where('SERIE', $card_serie)
+              ->where('NUM', $card_number)
+              ->update(['ACTIVATION_TOKEN' => $token]);
+  
+          $preactive_card_id = DB::table('ACTIVATED_CARDS')->insertGetId([
+              'SERIE' => $card_serie, 
+              'NUM' => $card_number
+          ]);
+  
+          $this->last_inserted_id = DB::table('USERS')->insertGetId([
+              'USERNAME' => '',
+              'FIRST_NAME' => $first_name,
+              'SECOND_NAME' => $second_name,
+              'PATRONYMIC' => $third_name,
+              'EMAIL' => $email,
+              'PHONE' => $phone,
+              'SEX' => $sex,
+              'DOB' => $dob,
+              'PASSWORD' => null,
+              'CARD_ID' => $preactive_card_id,
+              'IS_ACTIVE' => 0
+          ]);
+        });
 
         /*----------------*/
         /*SENDING E-MAIL
@@ -102,9 +107,8 @@ class UserController extends Controller
 
         */
       Mail::send('emails.email_verifier',
-          ['user_id' => $user_id,
+          ['user_id' => $this->last_inserted_id,
            'email' => $email,
-           'psw' => $psw_to_send,
            'token' => $token],
            function ($m) use ($email){
     $m->from('activation@etk-club.ru', 'ЕТК-Клуб');
@@ -116,29 +120,50 @@ class UserController extends Controller
 
     public function verifyAccount($token)
     {
-    	if ($card = DB::table('CARDS')->where('ACTIVATION_TOKEN',$token)->first())
-    		{
-    		  DB::table('CARDS')
-                ->where('ID', $card->ID)
-                ->update(['ACTIVATION_TOKEN' => null,
-                	      'IS_ACTIVATED'     => 1
-              ]);
-              DB::table('ACTIVATED_CARDS')
-                ->where('SERIE', $card->SERIE)
-                ->where('NUM', $card->NUM)
-                ->update(['IS_ACTIVE'        => 1
-              ]);
-              $activated_card = DB::table('ACTIVATED_CARDS')->where('SERIE', $card->SERIE)
-                                                            ->where('NUM', $card->NUM)
-                                                            ->first();
-              DB::table('USERS')
-                ->where('CARD_ID', $activated_card->ID)
-                ->update(['IS_ACTIVE'        => 1
-              ]);
+        $password_to_send = $this->generatePassword();
+        $password         = bcrypt($password_to_send);
+                DB::transaction(function() use ($password,$token){
+                   $card = DB::table('CARDS')->where('ACTIVATION_TOKEN',$token)->first();
+                    /*SET CARD STATUS TO ACTIVE, SET TOKEN TO NULL*/
+                    DB::table('CARDS')
+                      ->where('ID', $card->ID)
+                      ->update(['ACTIVATION_TOKEN' => null,
+                                'IS_ACTIVATED'     => 1
+                    ]);
+                    /*ACTIVATE CARD*/
+                    DB::table('ACTIVATED_CARDS')
+                      ->where('SERIE', $card->SERIE)
+                      ->where('NUM', $card->NUM)
+                      ->update(['IS_ACTIVE'        => 1
+                    ]);
+                    /*GET CARD ID*/
+                    $activated_card = DB::table('ACTIVATED_CARDS')->where('SERIE', $card->SERIE)
+                                                                  ->where('NUM', $card->NUM)
+                                                                  ->first();
+                    /*ACTIVATE USER ACCOUNT*/
+                    DB::table('USERS')
+                      ->where('CARD_ID', $activated_card->ID)
+                      ->update(['IS_ACTIVE' => 1,
+                                'PASSWORD' => $password
+                    ]);
+                    /*GET USER ROW*/
+                    $this->user = DB::table('USERS')
+                        ->where('CARD_ID', $activated_card->ID)
+                        ->first();
+                });
+                $user_id = $this->user->ID;
+                $email   =$this->user->EMAIL;
                 /*MAIL ABOUT HOW GREAT THE SIGN UP WAS*/
+                Mail::send('emails.email_confirmed',
+                      ['user_id' => $user_id,
+                       'email' => $email,
+                       'password' => $password_to_send],
+                       function ($m) use ($email){
+                $m->from('activation@etk-club.ru', 'ЕТК-Клуб');
+                $m->to($email)->subject('Успешная активация аккаунта в программе "ЕТК-Клуб"');
+                });
                 /*------------------------------------*/
               return redirect()->route('activation.ok');
-    		}
     }
     public function postSignIn(Request $request)
     {
