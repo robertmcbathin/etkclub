@@ -47,8 +47,8 @@ class UserController extends Controller
     	$card_number = $request['card_number'];
     	/*----------------*/
     	/*CHECK CARD CREDENTIALS*/
-    	$card = DB::table('CARDS')->where('SERIE',$card_serie)
-    	                          ->where('NUM',$card_number)
+    	$card = DB::table('cards')->where('serie',$card_serie)
+    	                          ->where('num',$card_number)
     	                          ->first();
     	if($card == NULL)
     	{
@@ -76,28 +76,28 @@ class UserController extends Controller
         /*------------*/
         /*SAVE TO DATABASE*/
         DB::transaction(function() use ($card_serie, $card_number,$token,$first_name,$second_name, $third_name, $email,$phone,$sex,$dob){
-          DB::table('CARDS')
-              ->where('SERIE', $card_serie)
-              ->where('NUM', $card_number)
-              ->update(['ACTIVATION_TOKEN' => $token]);
+          DB::table('cards')
+              ->where('serie', $card_serie)
+              ->where('num', $card_number)
+              ->update(['activation_token' => $token]);
   
-          $preactive_card_id = DB::table('ACTIVATED_CARDS')->insertGetId([
-              'SERIE' => $card_serie, 
-              'NUM' => $card_number
+          $preactive_card_id = DB::table('activated_cards')->insertGetId([
+              'serie' => $card_serie, 
+              'num' => $card_number
           ]);
   
-          $this->last_inserted_id = DB::table('USERS')->insertGetId([
-              'USERNAME' => '',
-              'FIRST_NAME' => $first_name,
-              'SECOND_NAME' => $second_name,
-              'PATRONYMIC' => $third_name,
-              'EMAIL' => $email,
-              'PHONE' => $phone,
-              'SEX' => $sex,
-              'DOB' => $dob,
-              'PASSWORD' => null,
-              'CARD_ID' => $preactive_card_id,
-              'IS_ACTIVE' => 0
+          $this->last_inserted_id = DB::table('users')->insertGetId([
+              'username' => '',
+              'first_name' => $first_name,
+              'second_name' => $second_name,
+              'patronymic' => $third_name,
+              'email' => $email,
+              'phone' => $phone,
+              'sex' => $sex,
+              'dob' => $dob,
+              'password' => null,
+              'card_id' => $preactive_card_id,
+              'is_active' => 0
           ]);
         });
 
@@ -123,36 +123,36 @@ class UserController extends Controller
         $password_to_send = $this->generatePassword();
         $password         = bcrypt($password_to_send);
                 DB::transaction(function() use ($password,$token){
-                   $card = DB::table('CARDS')->where('ACTIVATION_TOKEN',$token)->first();
+                   $card = DB::table('cards')->where('activation_token',$token)->first();
                     /*SET CARD STATUS TO ACTIVE, SET TOKEN TO NULL*/
-                    DB::table('CARDS')
-                      ->where('ID', $card->ID)
-                      ->update(['ACTIVATION_TOKEN' => null,
-                                'IS_ACTIVATED'     => 1
+                    DB::table('cards')
+                      ->where('id', $card->id)
+                      ->update(['activation_token' => null,
+                                'is_activated'     => 1
                     ]);
                     /*ACTIVATE CARD*/
-                    DB::table('ACTIVATED_CARDS')
-                      ->where('SERIE', $card->SERIE)
-                      ->where('NUM', $card->NUM)
-                      ->update(['IS_ACTIVE'        => 1
+                    DB::table('activated_cards')
+                      ->where('serie', $card->serie)
+                      ->where('num', $card->num)
+                      ->update(['is_active'        => 1
                     ]);
                     /*GET CARD ID*/
-                    $activated_card = DB::table('ACTIVATED_CARDS')->where('SERIE', $card->SERIE)
-                                                                  ->where('NUM', $card->NUM)
+                    $activated_card = DB::table('activated_cards')->where('serie', $card->serie)
+                                                                  ->where('num', $card->num)
                                                                   ->first();
                     /*ACTIVATE USER ACCOUNT*/
-                    DB::table('USERS')
-                      ->where('CARD_ID', $activated_card->ID)
-                      ->update(['IS_ACTIVE' => 1,
-                                'PASSWORD' => $password
+                    DB::table('users')
+                      ->where('card_id', $activated_card->id)
+                      ->update(['is_active' => 1,
+                                'password' => $password
                     ]);
                     /*GET USER ROW*/
-                    $this->user = DB::table('USERS')
-                        ->where('CARD_ID', $activated_card->ID)
+                    $this->user = DB::table('users')
+                        ->where('card_id', $activated_card->id)
                         ->first();
                 });
-                $user_id = $this->user->ID;
-                $email   =$this->user->EMAIL;
+                $user_id = $this->user->id;
+                $email   =$this->user->email;
                 /*MAIL ABOUT HOW GREAT THE SIGN UP WAS*/
                 Mail::send('emails.email_confirmed',
                       ['user_id' => $user_id,
