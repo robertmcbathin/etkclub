@@ -7,6 +7,7 @@
     <meta name="description" content="ЕТК-Клуб - сообщество потребителей траснпортных услуг, основанных на использовании электронных карт">
     <meta name="author" content="Alexander Ivanov | mercile55">
     <title>ЕТК-Клуб</title>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
     <link href="{{ URL::to('src/css/full-width-pics.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="{{ URL::to('src/css/animate.css') }}">
