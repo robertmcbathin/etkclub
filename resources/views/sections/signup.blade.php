@@ -34,15 +34,15 @@
          <p>Данные о владельце</p>
           <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="second_name">Фамилия</label>
-            <input type="text" id="second_name" name="second_name" maxlength="50" class="form-control" size="50" placeholder="Швецов">
+            <input type="text" id="second_name" name="second_name" maxlength="50" class="form-control" size="50" placeholder="">
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="first_name">Имя</label>
-            <input type="text" id="first_name" name="first_name" maxlength="50" class="form-control" size="50" placeholder="Лев">
+            <input type="text" id="first_name" name="first_name" maxlength="50" class="form-control" size="50" placeholder="">
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="third_name">Отчество</label>
-            <input type="text" id="third_name" name="third_name" maxlength="50" class="form-control" size="50" placeholder="Александрович">
+            <input type="text" id="third_name" name="third_name" maxlength="50" class="form-control" size="50" placeholder="">
          </div>
        </div>
        <div class="owner-private-data">
