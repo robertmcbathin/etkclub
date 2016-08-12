@@ -49,9 +49,9 @@
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="sex">Пол</label>
             <select class="form-control" name="sex">
-             <option>Не указано</option>
-             <option>муж</option>
-             <option>жен</option>
+             <option value="U">Не указано</option>
+             <option value="M">муж</option>
+             <option value="F">жен</option>
             </select>
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
@@ -64,7 +64,7 @@
        <p>Контактные данные</p>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="phone">Телефон</label>
-            <input type="text" id="phone" name="phone" maxlength="10" class="form-control" size="10" placeholder="88007006050">
+            <input type="text" id="phone" name="phone" maxlength="15" class="form-control" size="15" placeholder="88007006050">
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="dob">Электронная почта</label>
