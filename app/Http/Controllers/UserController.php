@@ -30,7 +30,7 @@ class UserController extends Controller
     {
     	$this->validate($request,[
     		'card_serie' => 'required|min:2',
-    		'card_number' => 'required|min:9',
+    		'card_number' => 'required|min:6',
             'second_name' => 'required|max:50',
             'first_name' => 'required|max:50',
             'dob' => 'date',

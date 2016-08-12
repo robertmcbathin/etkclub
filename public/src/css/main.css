@@ -90,10 +90,14 @@ background: #35a973;
 }
 #join-container{
 	width: 100vw;
+	min-height: 100vh;
 	text-align: center;
-	-webkit-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
+	background: #eee;
+	background: url(/src/img/bg/bgi.jpg) no-repeat center center scroll;
+	background-size: cover;
+/*	-webkit-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
 -moz-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
-box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);
+box-shadow: inset 0px 10px 41px 0px rgba(166,163,166,1);*/
 }
 #join-container h1{
 	font-family: "Ubuntu Condensed",Calibri;
@@ -132,14 +136,23 @@ label{
 	float: right;
 }
 .footer{
+	width: 100vw;
 	background: #333;
 	height: 100px;
 	text-align: center;
 }
-.footer p{
+.footer h2{
 	font-family: "Exo 2";
 	color: #9d9d9d;
 }
 .jumbotron{
 	margin-bottom: 0;
+	background-color: transparent;
+}
+.container-fluid .jumbotron {
+	border-radius: 0px;
+}
+.container-fluid .jumbotron h2{
+	font-family: "Exo 2";
+	color: #333;
 }
