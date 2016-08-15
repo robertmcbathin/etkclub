@@ -31,11 +31,11 @@ class UserController extends Controller
     	$this->validate($request,[
     		'card_serie' => 'required|min:2',
     		'card_number' => 'required|min:6',
-            'second_name' => 'required|max:50',
-            'first_name' => 'required|max:50',
-            'dob' => 'date',
-            'phone' => 'required|max:15',
-            'email' => 'required|email|max:50'
+        'second_name' => 'required|max:50',
+        'first_name' => 'required|max:50',
+        'dob' => 'date',
+        'phone' => 'required|max:15',
+        'email' => 'required|email|max:50'
     		]);
         /*INITIALIZING THE VARIABLES*/
         $third_name = '';
@@ -69,11 +69,6 @@ class UserController extends Controller
         /*TOKEN*/
         $token = $request['_token'];
         /*-----*/
-        /*VALIDATE SEX*/
-        if ($sex == 'муж') $sex = 'M';
-            else if ($sex == 'жен') $sex = 'F';
-                else $sex = 'U';
-        /*------------*/
         /*SAVE TO DATABASE*/
         DB::transaction(function() use ($card_serie, $card_number,$token,$first_name,$second_name, $third_name, $email,$phone,$sex,$dob){
           DB::table('cards')
