@@ -23,4 +23,8 @@ $(document).ready(function(){
 		}
 		return true;
 	});
+	$('[data-toggle="serie-tooltip"]').tooltip();
+	$('[data-toggle="num-tooltip"]').tooltip();
+	$('[data-toggle="dob-tooltip"]').tooltip();
+	$('[data-toggle="email-tooltip"]').tooltip();
 });

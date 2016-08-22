@@ -21,11 +21,11 @@
          <p>Данные о карте</p>
           <div class="input-group {{ $errors->has('card_serie') ? 'has-error' : ''}}">
             <label for="card_serie" >Серия</label>
-            <input type="text" id="card_serie" name="card_serie" maxlength="3" class="form-control" size="3" placeholder="00">
+            <input type="text" id="card_serie" name="card_serie" maxlength="3" class="form-control" size="3" placeholder="00" data-toggle="serie-tooltip" data-placement="bottom" title="Серия Вашей карты">
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="card_number">Номер</label>
-            <input type="text" id="card_number" name="card_number" maxlength="15" class="form-control" size="15" placeholder="000000000">
+            <input type="text" id="card_number" name="card_number" maxlength="15" class="form-control" size="15" placeholder="000000" data-toggle="num-tooltip" data-placement="bottom" title="Номер Вашей карты">
          </div>
          <span></span>
          <hr>
@@ -56,7 +56,8 @@
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="dob">Дата рождения</label>
-            <input type="date" id="dob" name="dob" maxlength="10" class="form-control" size="10" placeholder="мм/дд/гггг">
+            <input type="date" id="dob" name="dob" maxlength="10" class="form-control" size="10" placeholder="мм/дд/гггг" 
+            data-toggle="dob-tooltip" data-placement="bottom" title="Введите в формате 06/17/1980">
          </div>
          <hr>
        </div>
@@ -68,7 +69,7 @@
          </div>
          <div class="input-group {{ $errors->has('card_number') ? 'has-error' : ''}}">
             <label for="dob">Электронная почта</label>
-            <input type="email" id="email" name="email" maxlength="50" class="form-control" size="50" placeholder="example@mail.com">
+            <input type="email" id="email" name="email" maxlength="50" class="form-control" size="50" placeholder="example@mail.com" data-toggle="email-tooltip" data-placement="bottom" title="Адрес электронной почты необходим для регистрации">
          </div>
          <hr>
        </div>

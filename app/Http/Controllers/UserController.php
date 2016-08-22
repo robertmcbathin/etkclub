@@ -174,4 +174,12 @@ class UserController extends Controller
     {
         return view('callbacks.show_that_account_is_activated');
     }
+    public function showPrivacyPolitics()
+    {
+      return view('privacy');
+    }
+    public function showEula()
+    {
+      return view('eula');
+    }
 }
